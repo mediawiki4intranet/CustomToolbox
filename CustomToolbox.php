@@ -52,7 +52,7 @@ function efCustomToolboxSkinTemplateToolboxEnd($tpl)
     if (wfEmptyMsg('toolbox-content', $text))
         return true;
     $options = ParserOptions::newFromUser($wgUser);
-    $output = $wgParser->parse($text, $wgTitle, $options, false, true);
+    $output = $wgParser->parse($text, $wgTitle ? $wgTitle : Title::newMainPage(), $options, false, true);
     print $output->getText();
     return true;
 }
